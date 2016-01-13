@@ -20,6 +20,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -q \
     && make \
     && make install \
     && cd .. \
-    && rm -Rf pecl-memcache-81b1267413662dfc276f4530122cd1e7aba5c1fc
+    && rm -Rf pecl-memcache-81b1267413662dfc276f4530122cd1e7aba5c1fc \
+    && docker-php-ext-enable memcache
 WORKDIR /var/www/html
 CMD ["/usr/local/sbin/php-fpm", "--nodaemonize"]
